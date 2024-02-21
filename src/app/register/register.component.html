@@ -1,0 +1,121 @@
+<h1>Register</h1>
+<h4>{{ registerForm.get("first_name")?.errors | json }}</h4>
+<div *ngIf="error" class="alert alert-danger">
+  <h6>{{ error }}</h6>
+</div>
+<form
+  (ngSubmit)="submitRegister(registerForm)"
+  action=""
+  [formGroup]="registerForm"
+  class="py-3"
+>
+  <!-- <label class="py-1 my-3" for="first_name">first_name</label>
+    <input class="form-control" formControlName="first_name" type="text">
+    <div *ngIf="registerForm.get('first_name')?.errors&&registerForm.get('first_name')?.touched" class="alert alert-danger my-2">
+        <p *ngIf="registerForm.get('first_name')?.errors?.['required']">field is required</p>
+        <p *ngIf="registerForm.get('first_name')?.errors?.['minlength']">first_name minlength is 3</p>
+        <p *ngIf="registerForm.get('first_name')?.errors?.['maxlength']">first_name maxlength is 8</p>
+    </div> -->
+  <!-- <label class="py-1 my-3" for="last_name">last_name</label>
+    <input class="form-control" formControlName="last_name" type="text">
+    <div *ngIf="registerForm.get('last_name')?.errors&&registerForm.get('last_name')?.touched" class="alert alert-danger my-2">
+        <p *ngIf="registerForm.get('last_name')?.errors?.['required']">field is required</p>
+        <p *ngIf="registerForm.get('last_name')?.errors?.['minlength']">last_name min length is 3</p>
+        <p *ngIf="registerForm.get('last_name')?.errors?.['maxlength']">last_name max length is 8</p>
+    </div> -->
+  <label class="py-1 my-3" for="name">name</label>
+  <input class="form-control" formControlName="name" type="text" />
+  <div
+    *ngIf="
+      registerForm.get('name')?.errors && registerForm.get('name')?.touched
+    "
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="registerForm.get('name')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="registerForm.get('name')?.errors?.['minlength']">
+      name min length is 3
+    </p>
+    <p *ngIf="registerForm.get('name')?.errors?.['maxlength']">
+      name max length is 8
+    </p>
+  </div>
+  <label class="py-1 my-3" for="email">email</label>
+  <input class="form-control" formControlName="email" type="email" />
+  <div
+    *ngIf="
+      registerForm.get('email')?.errors && registerForm.get('email')?.touched
+    "
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="registerForm.get('email')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="registerForm.get('email')?.errors?.['email']">email is invalid</p>
+  </div>
+  <label class="py-1 my-3" for="password">password </label>
+  <input class="form-control" formControlName="password" type="password" />
+  <div
+    *ngIf="
+      registerForm.get('password')?.errors &&
+      registerForm.get('password')?.touched
+    "
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="registerForm.get('password')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
+      password min length is 7
+    </p>
+    <p *ngIf="registerForm.get('password')?.errors?.['maxlength']">
+      password max length is 19
+    </p>
+  </div>
+  <label class="py-1 my-3" for="rePassword">rePassword </label>
+  <input class="form-control" formControlName="rePassword" type="password" />
+  <div
+    *ngIf="
+      registerForm.get('rePassword')?.errors &&
+      registerForm.get('rePassword')?.touched
+    "
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="registerForm.get('rePassword')?.errors?.['minlength']">
+      rePassword min length is 7
+    </p>
+    <p *ngIf="registerForm.get('rePassword')?.errors?.['maxlength']">
+      rePassword max length is 19
+    </p>
+  </div>
+
+  <label class="py-1 my-3" for="phone">phone </label>
+  <input class="form-control" formControlName="phone" type="number" />
+  <div
+    *ngIf="
+      registerForm.get('phone')?.errors && registerForm.get('phone')?.touched
+    "
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="registerForm.get('phone')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="registerForm.get('phone')?.errors?.['min']">
+      phone numner is invalid
+    </p>
+    <p *ngIf="registerForm.get('phone')?.errors?.['max']">
+      phone number is invalid
+    </p>
+  </div>
+  <button
+    [disabled]="registerForm.invalid"
+    class="btn btn-warning px-4 py-1 my-3"
+    type="submit"
+  >
+    Register
+  </button>
+</form>

@@ -1,0 +1,83 @@
+<app-header [cliderContainer]="moviesCartona" ></app-header>
+
+
+<div class="row bg-gradient border-bottom pb-4">
+  <div class="col-md-4 pt-5 pb-0 my-3">
+    <div class="content my-3">
+      <div class="zero w-25 bg-danger my-3"></div>
+      <h2 class="fw-bolder  ">Triending movies <br />to watch right now</h2>
+      <p class="text-muted">Triending movies <br />to watch right now</p>
+      <div class="one w-100 bg-danger  my-3"></div>
+    </div>
+  </div>
+  <div *ngFor="let movieCartona of moviesCartona" class="col-md-2 ">
+   <a [routerLink]="['/moviedetails',movieCartona.id]">
+    <div class="movie my-2 position-relative">
+    <img [src]="imgBegin + movieCartona.poster_path" alt="" class="w-100 py-2 px-1"/>
+    <h3 class="h6 fw-bold">{{ movieCartona.title }}</h3>
+    <div
+      class="vote position-absolute mx-1 my-2 top-0 end-0 bg-light text-danger rounded-start p-1"
+    >
+      <h6 class="fw-bolder mt-1">{{ movieCartona.vote_average }}</h6>
+    </div>
+  </div></a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="row bg-gradient border-bottom pb-4">
+  <div class="col-md-4 my-3">
+    <div class="content py-3 my-3">
+      <div class="zero w-25 bg-danger my-3"></div>
+      <h2 class="fw-bolder ">Triending tv <br />to watch right now</h2>
+      <p class="text-muted">Triending tv <br />to watch right now</p>
+      <div class="one w-100 bg-danger my-3"></div>
+    </div>
+  </div>
+  <div *ngFor="let tvCartona of tvsCartona" class="col-md-2">
+    <a [routerLink]="['/moviedetails',tvCartona.id]">
+        <div class="tv my-2 position-relative">
+            <img [src]="imgBegin+tvCartona.poster_path" alt="" class="w-100" />
+            <h3 class="h6 fw-bolder py-2">{{ tvCartona.name }}</h3>
+            <div
+              class="vote position-absolute top-0 end-0 bg-light text-danger pt-1 rounded-start"
+            >
+              <h6 class="fw-bolder p-2">{{ tvCartona.vote_average }}</h6>
+            </div>
+          </div>
+    </a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="row bg-gradient border-bottom pb-4  ">
+  <div class="col-md-4 pt-5 pb-0 my-3 ">
+    <div class="content my-3">
+      <div class="zero w-25 bg-danger my-3"></div>
+      <h2 class="fw-bolder">Triending persons <br />to watch right now</h2>
+      <p class="text-muted">Triending persons <br />to watch right now</p>
+      <div class="one w-100 bg-danger my-5"></div>
+    </div>
+  </div>
+<ng-container *ngFor="let personCartona of personsCartona" >
+   <div *ngIf="personCartona.profile_path!=null" class="col-md-2 ">
+
+        <div  class="people position-relative  my-2">
+
+            <img [src]="imgBegin + personCartona.profile_path" alt="" class="w-100 py-2 px-1" />
+            <h3 class="h6 fw-bolder py-2">{{ personCartona.name }}</h3>
+            <div
+              class="vote position-absolute top-0 end-0 bg-light text-danger pt-1 rounded-start"
+            >
+              <h6 class="fw-bolder p-2">{{ personCartona.popularity }}</h6>
+            </div>
+          </div>
+
+  </div>
+</ng-container>
+
+
+</div>
+

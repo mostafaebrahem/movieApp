@@ -1,0 +1,14 @@
+<header  class="conter my-5">
+    <owl-carousel-o class="slide py-2 " [options]="customOptions">
+
+        <ng-container *ngFor="let slide of cliderContainer">
+          <ng-template carouselSlide [id]="slide.id">
+            
+              <a [routerLink]="['/moviedetails',slide.id]"><img class="px-1 " [src]="imgBegin+slide.poster_path"></a>
+       
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>
+</header>
+

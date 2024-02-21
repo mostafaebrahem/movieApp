@@ -1,0 +1,46 @@
+<div class="container bg-gradient py-5 my-5">
+   
+<div *ngIf="detailsCartona.title!=null&&tvdetails.name==null" class="row">
+    <div class="col-md-3 m-3">
+        <img class="w-100" [src]="[imgBegin+detailsCartona.poster_path]" alt="">
+        <h3 class="fw-bolder py-2 h6">{{detailsCartona.title}}</h3>
+    </div>
+    <div class="col-md-8 my-5">
+        <p class="text-muted">{{detailsCartona.overview}}</p>
+        <p class="text-warning">language : {{detailsCartona.original_language}}</p>
+        <p class="text-warning">popularity : {{detailsCartona.popularity}}</p>
+        <h4 class="text-warning">Genres :</h4>
+        <ul>
+            <li class="py-2 " *ngFor="let item of detailsCartona.genres">{{item.name}}</li>
+        </ul>
+        <h4>Production Companies : </h4>
+        <ul>
+            <li class="py-2" *ngFor="let item of detailsCartona.production_companies">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="tvdetails.name!=null" class="row">
+    <div class="col-md-3 m-3">
+        <img class="w-100" [src]="[imgBegin+tvdetails.poster_path]" alt="">
+        <h3 class="fw-bolder py-2 h6">{{tvdetails.name}}:</h3>
+       
+    </div>
+    <div class="col-md-8 my-5">
+        <p class="text-muted">{{tvdetails.overview}}</p>
+        <p class="text-warning">language : {{tvdetails.languages}}</p>
+        <p class="text-warning">last air date : {{tvdetails.last_air_date}}</p>
+        <h4 class="text-warning">Genres :</h4>
+        <ul>
+            <li class="py-2 " *ngFor="let item of tvdetails.genres">{{item.name}}</li>
+        </ul>
+        <h4>seasons : </h4>
+        <ul>
+            <li class="py-2" *ngFor="let item of tvdetails.seasons">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+</div>

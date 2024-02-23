@@ -16,7 +16,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this._MoviesService.getTriending('person').subscribe((response)=>{
       this.galleryCartona=response.results;
-      console.log(this.galleryCartona)
+     
     })
   }
 

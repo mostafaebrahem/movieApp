@@ -1,26 +1,50 @@
-<h1 >Login now </h1>
+<h1 class="pt-5">Login now</h1>
 
-<div *ngIf="error!=null" class="alert alert-danger mt-5"><h4>{{error}}</h4></div>
+<div *ngIf="error != null" class="alert alert-danger mt-5">
+  <h4>{{ error }}</h4>
+</div>
 
-<form (ngSubmit)="submitLogin(loginForm)" action="" [formGroup]="loginForm" class="py-3 ">
-    
-    <label class="py-1 my-3" for="email">email</label>
-    <input class="form-control" formControlName="email" type="email">
-    <div *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched" class="alert alert-danger my-2">
-        <p *ngIf="loginForm.get('email')?.errors?.['required']">field is required</p>
-        <p *ngIf="loginForm.get('email')?.errors?.['email']">email is invalid</p>
-        
-        
-    </div>
-    <label class="py-1 my-3" for="password">password </label>
-    <input class="form-control" formControlName="password" type="password">
-    <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched" class="alert alert-danger my-2">
-        <p *ngIf="loginForm.get('password')?.errors?.['required']">field is required</p>
-        <p *ngIf="loginForm.get('password')?.errors?.['minlength']">password min length is 7</p>
-        <p *ngIf="loginForm.get('password')?.errors?.['maxlength']">password max length is 19</p>
-    </div>
+<form
+  (ngSubmit)="submitLogin(loginForm)"
+  action=""
+  [formGroup]="loginForm"
+  class="py-3"
+>
+  <label class="py-1 mb-3" for="email">email</label>
+  <input class="form-control" formControlName="email" type="email" />
+  <div
+    *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="loginForm.get('email')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="loginForm.get('email')?.errors?.['email']">email is invalid</p>
+  </div>
+  <label class="py-1 my-3" for="password">password </label>
+  <input class="form-control" formControlName="password" type="password" />
+  <div
+    *ngIf="
+      loginForm.get('password')?.errors && loginForm.get('password')?.touched
+    "
+    class="alert alert-danger my-2"
+  >
+    <p *ngIf="loginForm.get('password')?.errors?.['required']">
+      field is required
+    </p>
+    <p *ngIf="loginForm.get('password')?.errors?.['minlength']">
+      password min length is 7
+    </p>
+    <p *ngIf="loginForm.get('password')?.errors?.['maxlength']">
+      password max length is 19
+    </p>
+  </div>
 
-  
-    <button [disabled]="loginForm.invalid" class="btn btn-warning px-4 py-1 my-3" type="submit">Login</button>
-
+  <button
+    [disabled]="loginForm.invalid"
+    class="btn btn-warning px-4 py-1 my-3"
+    type="submit"
+  >
+    Login
+  </button>
 </form>

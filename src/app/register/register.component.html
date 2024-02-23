@@ -1,5 +1,4 @@
-<h1>Register</h1>
-<h4>{{ registerForm.get("first_name")?.errors | json }}</h4>
+<h1 class="mt-5">Register</h1>
 <div *ngIf="error" class="alert alert-danger">
   <h6>{{ error }}</h6>
 </div>
@@ -9,21 +8,7 @@
   [formGroup]="registerForm"
   class="py-3"
 >
-  <!-- <label class="py-1 my-3" for="first_name">first_name</label>
-    <input class="form-control" formControlName="first_name" type="text">
-    <div *ngIf="registerForm.get('first_name')?.errors&&registerForm.get('first_name')?.touched" class="alert alert-danger my-2">
-        <p *ngIf="registerForm.get('first_name')?.errors?.['required']">field is required</p>
-        <p *ngIf="registerForm.get('first_name')?.errors?.['minlength']">first_name minlength is 3</p>
-        <p *ngIf="registerForm.get('first_name')?.errors?.['maxlength']">first_name maxlength is 8</p>
-    </div> -->
-  <!-- <label class="py-1 my-3" for="last_name">last_name</label>
-    <input class="form-control" formControlName="last_name" type="text">
-    <div *ngIf="registerForm.get('last_name')?.errors&&registerForm.get('last_name')?.touched" class="alert alert-danger my-2">
-        <p *ngIf="registerForm.get('last_name')?.errors?.['required']">field is required</p>
-        <p *ngIf="registerForm.get('last_name')?.errors?.['minlength']">last_name min length is 3</p>
-        <p *ngIf="registerForm.get('last_name')?.errors?.['maxlength']">last_name max length is 8</p>
-    </div> -->
-  <label class="py-1 my-3" for="name">name</label>
+  <label class="py-1 mb-3" for="name">name</label>
   <input class="form-control" formControlName="name" type="text" />
   <div
     *ngIf="
@@ -53,6 +38,7 @@
       field is required
     </p>
     <p *ngIf="registerForm.get('email')?.errors?.['email']">email is invalid</p>
+    <p>{{ error }}</p>
   </div>
   <label class="py-1 my-3" for="password">password </label>
   <input class="form-control" formControlName="password" type="password" />

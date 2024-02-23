@@ -30,10 +30,10 @@ export class AuthService {
   }
   setUserData(): void {
     let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
-    console.log('encoded token is ', encodedToken);
+
     let decodedToken: any = jwtDecode(encodedToken);
     this.userData.next(decodedToken);
-    console.log('decoded token is ', this.userData);
+   
   }
   logout(): void {
     localStorage.removeItem('userToken');

@@ -10,7 +10,7 @@ import { AuthService } from './../auth.service';
 })
 export class RegisterComponent implements OnInit {
   error: string = '';
-
+  registerError: string = '';
   constructor(private _AuthService: AuthService, private _Router: Router) {}
   registerForm: FormGroup = new FormGroup({
     // first_name:new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(9)]),
@@ -43,15 +43,13 @@ export class RegisterComponent implements OnInit {
     ]),
   });
   submitRegister(formInfo: FormGroup) {
-    console.log(formInfo.value);
     this._AuthService.register(formInfo.value).subscribe((response) => {
-      console.log(response);
       if (response.message == 'success') {
         //go to login
         this._Router.navigate(['/login']);
       } else {
         this.error = response.errors.email.message;
-        console.log(this.error);
+        this.registerError = response.errors.email;
       }
     });
   }

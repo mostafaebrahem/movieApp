@@ -4,10 +4,12 @@
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 />
 
-<nav class="navbar navbar-expand-lg bg-danger fw-bold p-3 bg-danger fixed-top">
-  <a class="navbar-brand" routerLink="/home">Your Brand</a>
+<nav
+  class="navbar navbar-expand-lg bg-danger fw-bold p-3 bg-danger fixed-top px-4"
+>
+  <a class="navbar-brand" routerLink="/home">MO</a>
   <button
-    class="navbar-toggler nav-item dropdown"
+    class="navbar-toggler nav-item dropdown me-4"
     type="button"
     data-toggle="dropdown"
     data-target="#navbarNav"
@@ -23,7 +25,7 @@
     >
       <span class="navbar-toggler-icon"> </span>
     </a>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu me-5 menu-width">
       <li class="">
         <a class="dropdown-item" routerLink="/home">Home</a>
       </li>
@@ -51,7 +53,7 @@
       </li>
     </ul>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/home">Home</a>
@@ -74,28 +76,10 @@
     </ul>
   </div>
   <div class="d-flex">
-    <ul class="navbar-nav">
-      <div class="social-icons">
-        <a href="https://www.facebook.com/mostafa.ebrahem.313" target="_blank"
-          ><i class="mx-2 fa-brands fa-facebook"></i
-        ></a>
-        <a
-          href="https://twitter.com/Mostafa60988518?t=XUE6m5wUsNy7hT1UlS9rKA&s=09"
-          target="_blank"
-        >
-          <i class="mx-2 fa-brands fa-twitter"></i
-        ></a>
-        <a href="https://www.instagram.com/mostafa_ebraheem99/" target="_blank"
-          ><i class="mx-2 fa-brands fa-instagram"></i
-        ></a>
-        <i class="mx-2 fa-brands fa-xbox"></i>
-        <i class="mx-2 fa-brands fa-youtube"></i>
-      </div>
-    </ul>
     <ul
       class="list-unstyled d-flex justify-content-around align-items-center m-0"
     >
-      <li class="mx-2">
+      <li class="mx-2 nav-item">
         <a *ngIf="!isLogin" routerLink="/login">login</a>
       </li>
 
@@ -112,7 +96,7 @@
         >
           Settings
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu nav-item">
           <li>
             <a class="dropdown-item" routerLink="settings/profile">Profile</a>
           </li>
@@ -125,7 +109,7 @@
           </li>
         </ul>
       </li>
-      <li class="mx-2 px-2">
+      <li class="mx-2 px-2 nav-item">
         <a *ngIf="isLogin" (click)="callLogOut()" routerLink="/logout"
           >logout</a
         >

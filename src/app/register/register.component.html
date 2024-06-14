@@ -8,8 +8,13 @@
   [formGroup]="registerForm"
   class="py-3"
 >
-  <label class="py-1 mb-3" for="name">name</label>
-  <input class="form-control" formControlName="name" type="text" />
+  <label class="py-1 mb-3" for="name">name *</label>
+  <input
+    placeholder="ex : John"
+    class="form-control"
+    formControlName="name"
+    type="text"
+  />
   <div
     *ngIf="
       registerForm.get('name')?.errors && registerForm.get('name')?.touched
@@ -26,8 +31,13 @@
       name max length is 8
     </p>
   </div>
-  <label class="py-1 my-3" for="email">email</label>
-  <input class="form-control" formControlName="email" type="email" />
+  <label class="py-1 my-3" for="email">email *</label>
+  <input
+    placeholder="ex : aaa@mail.com"
+    class="form-control"
+    formControlName="email"
+    type="email"
+  />
   <div
     *ngIf="
       registerForm.get('email')?.errors && registerForm.get('email')?.touched
@@ -37,50 +47,51 @@
     <p *ngIf="registerForm.get('email')?.errors?.['required']">
       field is required
     </p>
-    <p *ngIf="registerForm.get('email')?.errors?.['email']">email is invalid</p>
+    <p *ngIf="registerForm.get('email')?.errors">email is invalid</p>
     <p>{{ error }}</p>
   </div>
-  <label class="py-1 my-3" for="password">password </label>
-  <input class="form-control" formControlName="password" type="password" />
-  <div
-    *ngIf="
-      registerForm.get('password')?.errors &&
-      registerForm.get('password')?.touched
-    "
-    class="alert alert-danger my-2"
-  >
-    <p *ngIf="registerForm.get('password')?.errors?.['required']">
-      field is required
-    </p>
-    <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
-      password min length is 7
-    </p>
-    <p *ngIf="registerForm.get('password')?.errors?.['maxlength']">
-      password max length is 19
-    </p>
-  </div>
-  <label class="py-1 my-3" for="rePassword">rePassword </label>
-  <input class="form-control" formControlName="rePassword" type="password" />
-  <div
-    *ngIf="
-      registerForm.get('rePassword')?.errors &&
-      registerForm.get('rePassword')?.touched
-    "
-    class="alert alert-danger my-2"
-  >
-    <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">
-      field is required
-    </p>
-    <p *ngIf="registerForm.get('rePassword')?.errors?.['minlength']">
-      rePassword min length is 7
-    </p>
-    <p *ngIf="registerForm.get('rePassword')?.errors?.['maxlength']">
-      rePassword max length is 19
-    </p>
-  </div>
+  <div class="form-group">
+    <label class="py-1 my-3" for="password">password *</label>
+    <input class="form-control" formControlName="password" type="password" />
+    <div
+      *ngIf="
+        registerForm.get('password')?.errors &&
+        registerForm.get('password')?.touched
+      "
+      class="alert alert-danger my-2"
+    >
+      <p *ngIf="registerForm.get('password')?.errors?.['required']">
+        field is required
+      </p>
+      <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
+        password min length is 7
+      </p>
+      <p *ngIf="registerForm.get('password')?.errors?.['maxlength']">
+        password max length is 19
+      </p>
+    </div>
+    <label class="py-1 my-3" for="rePassword">rePassword *</label>
+    <input class="form-control" formControlName="rePassword" type="password" />
+    <div *ngIf="rePassword.dirty" class="my-2">
+      <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">
+        field is required
+      </p>
 
-  <label class="py-1 my-3" for="phone">phone </label>
-  <input class="form-control" formControlName="phone" type="number" />
+      <p
+        class="alert alert-danger"
+        *ngIf="registerForm.hasError('notMatching')"
+      >
+        Password and rePassword doesn't match
+      </p>
+    </div>
+  </div>
+  <label class="py-1 my-3" for="phone">phone *</label>
+  <input
+    placeholder="ex : 01234567890"
+    class="form-control"
+    formControlName="phone"
+    type="number"
+  />
   <div
     *ngIf="
       registerForm.get('phone')?.errors && registerForm.get('phone')?.touched
